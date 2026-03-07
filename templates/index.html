@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bike Price Prediction System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --navy:#0b1f3a;
+    --gold:#c9a84c;
+    --gold-light:#e8c97a;
+    --cream:#f5f0e8;
+    --text-muted:rgba(245,240,232,0.7);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    color:var(--cream);
+    min-height:100vh;
+    overflow-x:hidden;
+
+    /* Background Image with Medium Overlay */
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("{{ url_for('static', filename='bike.jpeg') }}");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.page{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+/* HEADER */
+header{
+    padding:28px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    display:flex;
+    gap:14px;
+    align-items:center;
+}
+
+.logo-icon{
+    width:42px;height:42px;
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+}
+
+.logo-text{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text-muted);
+    padding:8px 18px;
+    border-radius:6px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--cream);
+    background:rgba(201,168,76,0.2);
+}
+
+/* HERO */
+.hero{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 40px;
+    gap:28px;
+}
+
+.badge{
+    background:rgba(201,168,76,.2);
+    border:1px solid rgba(201,168,76,.5);
+    padding:8px 20px;
+    border-radius:100px;
+    font-size:.8rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--gold-light);
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(3rem,6vw,5rem);
+    font-weight:900;
+    line-height:1.1;
+}
+
+h1 .accent{
+    color:transparent;
+    -webkit-text-stroke:2px var(--gold);
+}
+
+.hero-desc{
+    max-width:600px;
+    color:var(--text-muted);
+    line-height:1.7;
+}
+
+.cta-group{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    color:black;
+    padding:15px 36px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,0.4);
+    padding:14px 34px;
+    border-radius:8px;
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,0.1);
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid rgba(255,255,255,0.1);
+    padding:20px;
+    text-align:center;
+    color:var(--text-muted);
+    background:rgba(0,0,0,0.4);
+}
+
+@media(max-width:768px){
+    header{
+        padding:20px;
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">🏍️</div>
+        <div class="logo-text">BikeIQ</div>
+    </div>
+
+    <nav>
+        <a href="/predict">Predict</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="badge">AI-Powered Price Estimator</div>
+
+    <h1>Smart Bike <span class="accent">Price</span><br>Prediction</h1>
+
+    <p class="hero-desc">
+        Estimate your bike’s market value instantly using our Machine Learning model.
+        We analyze brand, owner history, bike age, engine power, and kilometers driven
+        to deliver accurate price predictions.
+    </p>
+
+    <div class="cta-group">
+        <a href="/predict" class="btn-primary">
+            Predict Bike Price →
+        </a>
+
+        <a href="/about" class="btn-secondary">
+            Learn More
+        </a>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 BikeIQ Prediction System — Built with Machine Learning 🏍️
+</footer>
+
+</div>
+
+</body>
+</html>
